@@ -28,7 +28,8 @@
       radial-gradient(circle at 15% 85%,rgba(255,105,180,0.22),transparent 45%),
       radial-gradient(circle at 85% 15%,rgba(255,20,147,0.2),transparent 45%),
       linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,#3d1a2d 100%);
-    overflow:hidden;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
     padding:20px;
     position:relative;
   }
@@ -220,7 +221,7 @@
   // ── mouse / touch position (page coords) ──
   let mx = -9999, my = -9999;
   document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; });
-  document.addEventListener('touchmove', e=>{ e.preventDefault(); mx=e.touches[0].clientX; my=e.touches[0].clientY; },{passive:false});
+  document.addEventListener('touchmove', e=>{ mx=e.touches[0].clientX; my=e.touches[0].clientY; },{passive:true});
   document.addEventListener('touchstart',e=>{ mx=e.touches[0].clientX; my=e.touches[0].clientY; },{passive:true});
 
   // ── flee constants ──
