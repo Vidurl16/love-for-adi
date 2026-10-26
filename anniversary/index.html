@@ -313,10 +313,8 @@
     return p;
   }
 
-  const all = [
-    ...C.moments.map(m => ({photo:m.photo, caption:m.title})),
-    ...C.gallery,
-  ];
+  // every photo, oldest first; timeline moments are the ones with a title
+  const all = C.photos;
 
   // ───────── envelope intro ─────────
   $('#envNote').textContent = C.envelopeNote;
@@ -350,11 +348,12 @@
 
   // ───────── timeline ─────────
   const tl = $('#timeline');
-  C.moments.forEach((m,i) => {
+  all.forEach((m,i) => {
+    if (!m.title) return;
     const row = document.createElement('div');
     row.className = 'moment';
     row.innerHTML = `<div class="ph rv"></div><div class="dot"></div><div class="tx rv"><div class="date"></div><h3></h3><p></p></div>`;
-    const p = polaroid(m.photo, m.title, i);
+    const p = polaroid(m.photo, m.caption, i);
     row.querySelector('.ph').appendChild(p);
     row.querySelector('.date').textContent = m.date;
     row.querySelector('h3').textContent = m.title;
@@ -505,7 +504,7 @@
     const im = $('#lbImg');
     im.onerror = () => { im.onerror = null; im.src = placeholder(g.photo, cur); };
     im.src = 'photos/' + g.photo;
-    $('#lbCap').textContent = g.caption;
+    $('#lbCap').textContent = g.date ? `${g.caption} · ${g.date}` : g.caption;
   }
   function openLb(i){ cur = i; showLb(); lb.classList.add('on'); }
   const go = d => { cur = (cur + d + all.length) % all.length; showLb(); };

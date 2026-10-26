@@ -7,30 +7,29 @@ window.ANNIVERSARY = {
   me: "Vidur",
 
   // The day it all started (YYYY-MM-DDTHH:mm). Used by the live counter.
-  startDate: "2025-11-01T19:00",
+  startDate: "2025-10-28T00:00",
 
   // The note inside the envelope on the opening screen.
   envelopeNote: "Happy 1 year, my love. Scroll slowly. 💜",
 
-  // Timeline moments, in order. `photo` is a filename in ./photos/
-  moments: [
-    { date: "Nov 2025", title: "The beginning",       text: "The day everything changed.",                    photo: "01.jpg" },
-    { date: "Dec 2025", title: "Our first holiday season", text: "Fairy lights, bad jokes, and you.",          photo: "02.jpg" },
-    { date: "Feb 2026", title: "You said yes",          text: "Valentine's Day — and a very cowardly No button.", photo: "03.jpg" },
-    { date: "Apr 2026", title: "Adventure",             text: "Getting lost with you is my favourite thing.",  photo: "04.jpg" },
-    { date: "Jul 2026", title: "Just us",               text: "The quiet days are my favourite days.",         photo: "05.jpg" },
-    { date: "Nov 2026", title: "One year",              text: "365 days, and I'd choose you every one of them.", photo: "06.jpg" },
-  ],
-
-  // Extra photos for the spinning 3D carousel and the scrapbook wall.
-  // (Moment photos are included automatically.)
-  gallery: [
-    { photo: "07.jpg", caption: "us 💕" },
-    { photo: "08.jpg", caption: "that smile" },
-    { photo: "09.jpg", caption: "my favourite" },
-    { photo: "10.jpg", caption: "always" },
-    { photo: "11.jpg", caption: "silly us" },
-    { photo: "12.jpg", caption: "home" },
+  // Every photo, oldest first (files in ./photos/). This order is used everywhere:
+  // the timeline, the 3D carousel, the scrapbook wall and the photo viewer.
+  // Photos with a `title` also get a spot on the "Our Story" timeline.
+  photos: [
+    { photo: "01.jpg", date: "28 Oct 2025", caption: "Where it all started", title: "Where it all started", text: "Car selfies and the start of my favourite story." },
+    { photo: "02.jpg", date: "20 Nov 2025", caption: "that smile" },
+    { photo: "03.jpg", date: "4 Dec 2025",  caption: "Summer with you", title: "Summer with you", text: "Long days, good food, and the best company." },
+    { photo: "04.jpg", date: "4 Dec 2025",  caption: "silly us 😛" },
+    { photo: "05.jpg", date: "17 Dec 2025", caption: "us 💕" },
+    { photo: "06.jpg", date: "22 Dec 2025", caption: "festive season" },
+    { photo: "07.jpg", date: "4 Jan 2026",  caption: "All dressed up", title: "All dressed up", text: "New year, same favourite person." },
+    { photo: "08.jpg", date: "14 Jan 2026", caption: "can't help it" },
+    { photo: "09.jpg", date: "23 Jan 2026", caption: "lazy days" },
+    { photo: "10.jpg", date: "21 May 2026", caption: "Stolen kisses", title: "Stolen kisses", text: "Every chance I get." },
+    { photo: "11.jpg", date: "20 Jun 2026", caption: "Sunshine days", title: "Sunshine days", text: "The quiet days are my favourite days." },
+    { photo: "12.jpg", date: "12 Jul 2026", caption: "game day 💚💛" },
+    { photo: "13.jpg", date: "8 Aug 2026",  caption: "my favourite" },
+    { photo: "14.jpg", date: "30 Aug 2026", caption: "Still my favourite", title: "Still my favourite", text: "Almost a year in, and I'd choose you every single day." },
   ],
 
   // Flip cards — tap to reveal.
