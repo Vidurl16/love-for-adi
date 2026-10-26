@@ -34,23 +34,24 @@ window.ANNIVERSARY = {
 
   // Flip cards — tap to reveal.
   reasons: [
-    "Your laugh fixes my worst days",
-    "You make ordinary things feel like adventures",
-    "The way you look at me",
-    "You're my calm",
-    "You put up with my nonsense",
-    "You're my best friend",
-    "Your hugs",
-    "You make me want to be better",
+    "You asked \"are we dating?\" first, and I'll never let you forget it",
+    "Your love for prawns (almost as much as me)",
+    "You put up with me annoying you every single day",
+    "Smatchies",
+    "You're my beautiful Adi bear",
+    "You came to meet my family (and had the chai first)",
+    "You'll scream \"Go Bokke\" with me, hot wings in hand",
+    "Every first with you, from Holi to Kendra, and every one still to come",
   ],
 
   // Typed out like a letter, line by line.
   letter: [
-    "My dearest Adithi,",
+    "My dearest Adi,",
     "",
-    "A year ago I didn't know that one person could become my favourite part of every single day.",
-    "Thank you for every laugh, every late-night talk, every adventure and every quiet moment in between.",
-    "Here's to year one — and to every year after it.",
+    "A year ago you asked me \"are we dating?\", and I didn't know that one question would change my whole life.",
+    "Since then: prawns on my birthday, our first Holi, chai with my family, Go Bokke and hot wings, and more gate crashing than you ever asked for.",
+    "Thank you for every laugh, every adventure, and for putting up with me annoying you. I promise I'll never stop.",
+    "Here's to year one, and to every year after it.",
     "",
     "I love you. Always.",
     "— Vidur",
