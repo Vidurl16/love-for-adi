@@ -16,20 +16,20 @@ window.ANNIVERSARY = {
   // the timeline, the 3D carousel, the scrapbook wall and the photo viewer.
   // Photos with a `title` also get a spot on the "Our Story" timeline.
   photos: [
-    { photo: "01.jpg", date: "28 Oct 2025", caption: "Where it all started", title: "Where it all started", text: "Car selfies and the start of my favourite story." },
+    { photo: "01.jpg", date: "28 Oct 2025", caption: "Day one", title: "Day one", text: "You asked me, \"are we dating?\" and our lives changed forever." },
     { photo: "02.jpg", date: "20 Nov 2025", caption: "that smile" },
-    { photo: "03.jpg", date: "4 Dec 2025",  caption: "Summer with you", title: "Summer with you", text: "Long days, good food, and the best company." },
-    { photo: "04.jpg", date: "4 Dec 2025",  caption: "silly us 😛" },
+    { photo: "03.jpg", date: "4 Dec 2025",  caption: "My birthday", title: "My birthday", text: "Where I learnt about your love for prawns… and me." },
+    { photo: "04.jpg", date: "4 Dec 2025",  caption: "silly us 💕" },
     { photo: "05.jpg", date: "17 Dec 2025", caption: "us 💕" },
     { photo: "06.jpg", date: "22 Dec 2025", caption: "festive season" },
-    { photo: "07.jpg", date: "4 Jan 2026",  caption: "All dressed up", title: "All dressed up", text: "New year, same favourite person." },
+    { photo: "07.jpg", date: "4 Jan 2026",  caption: "Out at the club", title: "First time out at the club together", text: "Our first night out together." },
     { photo: "08.jpg", date: "14 Jan 2026", caption: "can't help it" },
     { photo: "09.jpg", date: "23 Jan 2026", caption: "lazy days" },
-    { photo: "10.jpg", date: "21 May 2026", caption: "Stolen kisses", title: "Stolen kisses", text: "Every chance I get." },
-    { photo: "11.jpg", date: "20 Jun 2026", caption: "Sunshine days", title: "Sunshine days", text: "The quiet days are my favourite days." },
+    { photo: "10.jpg", date: "21 May 2026", caption: "Meeting my family", title: "First time meeting my family", text: "Chai before, of course." },
+    { photo: "11.jpg", date: "20 Jun 2026", caption: "Go Bokke!", title: "Go Bokke, together", text: "Green and gold, side by side." },
     { photo: "12.jpg", date: "12 Jul 2026", caption: "game day 💚💛" },
     { photo: "13.jpg", date: "8 Aug 2026",  caption: "my favourite" },
-    { photo: "14.jpg", date: "30 Aug 2026", caption: "Still my favourite", title: "Still my favourite", text: "Almost a year in, and I'd choose you every single day." },
+    { photo: "14.jpg", date: "30 Aug 2026", caption: "Kendra", title: "First time at Kendra together", text: "And definitely not the last." },
   ],
 
   // Flip cards — tap to reveal.

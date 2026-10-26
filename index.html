@@ -109,6 +109,11 @@
   }
   .polaroid img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#eee;pointer-events:none;user-select:none;-webkit-user-drag:none;}
   .polaroid .cap{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:'Caveat',cursive;font-size:22px;}
+  .polaroid .stamp{ /* retro camera date stamp */
+    position:absolute;right:20px;bottom:56px;pointer-events:none;
+    font-family:'Courier New',monospace;font-weight:700;font-size:13px;letter-spacing:1px;
+    color:#ffa04a;text-shadow:0 0 4px rgba(255,110,0,.9),0 0 1px #ff6a00;
+  }
   .polaroid::before{ /* tape */
     content:'';position:absolute;top:-12px;left:50%;width:90px;height:26px;transform:translateX(-50%) rotate(-3deg);
     background:rgba(255,220,235,.55);box-shadow:0 1px 3px rgba(0,0,0,.15);
@@ -144,6 +149,7 @@
   .ring .polaroid{position:absolute;inset:0;padding:8px 8px 36px;backface-visibility:hidden;-webkit-box-reflect:below 14px linear-gradient(transparent 60%,rgba(255,255,255,.18));}
   .ring .polaroid::before{display:none;}
   .ring .polaroid .cap{font-size:18px;bottom:6px;}
+  .ring .polaroid .stamp{font-size:10px;right:14px;bottom:42px;}
   .ring .polaroid img{height:100%;aspect-ratio:auto;max-height:196px;}
   @media (max-width:700px){.stage{height:380px}.ring{scale:.62}}
   .hint{text-align:center;color:var(--muted);font-size:13px;margin-top:20px;}
@@ -152,7 +158,7 @@
   .wall{position:relative;height:640px;border-radius:30px;border:2px dashed var(--border);background:rgba(255,255,255,.03);overflow:hidden;}
   .wall .polaroid{position:absolute;width:180px;cursor:grab;touch-action:none;transition:box-shadow .2s, transform .25s cubic-bezier(.34,1.56,.64,1);}
   .wall .polaroid.drag{cursor:grabbing;box-shadow:0 30px 60px rgba(0,0,0,.55);transition:box-shadow .2s;}
-  @media (max-width:700px){.wall{height:560px}.wall .polaroid{width:130px;padding:8px 8px 34px}.wall .polaroid .cap{font-size:17px;bottom:6px}}
+  @media (max-width:700px){.wall{height:560px}.wall .polaroid{width:130px;padding:8px 8px 34px}.wall .polaroid .cap{font-size:17px;bottom:6px}.wall .polaroid .stamp{font-size:10px;right:14px;bottom:40px}}
 
   /* ───────── REASONS ───────── */
   .reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;}
@@ -303,10 +309,11 @@
     el.src = 'photos/' + file;
     return el;
   }
-  function polaroid(file,cap,i){
+  function polaroid(file,cap,i,date){
     const p = document.createElement('div');
     p.className = 'polaroid';
     p.appendChild(img(file,i,cap));
+    if (date){ const d = document.createElement('div'); d.className = 'stamp'; d.textContent = date.toUpperCase(); p.appendChild(d); }
     const c = document.createElement('div'); c.className = 'cap'; c.textContent = cap;
     p.appendChild(c);
     p.dataset.idx = i;
@@ -353,7 +360,7 @@
     const row = document.createElement('div');
     row.className = 'moment';
     row.innerHTML = `<div class="ph rv"></div><div class="dot"></div><div class="tx rv"><div class="date"></div><h3></h3><p></p></div>`;
-    const p = polaroid(m.photo, m.caption, i);
+    const p = polaroid(m.photo, m.caption, i, m.date);
     row.querySelector('.ph').appendChild(p);
     row.querySelector('.date').textContent = m.date;
     row.querySelector('h3').textContent = m.title;
@@ -387,7 +394,7 @@
   const ring = $('#ring'), stage = $('#stage');
   const n = all.length, radius = Math.round(115 / Math.tan(Math.PI / n)) + 40;
   all.forEach((g,i) => {
-    const p = polaroid(g.photo, g.caption, i);
+    const p = polaroid(g.photo, g.caption, i, g.date);
     p.style.transform = `rotateY(${i*360/n}deg) translateZ(${radius}px)`;
     ring.appendChild(p);
   });
@@ -425,7 +432,7 @@
     });
   }
   all.forEach((g,i) => {
-    const p = polaroid(g.photo, g.caption, i);
+    const p = polaroid(g.photo, g.caption, i, g.date);
     wall.appendChild(p);
     let sx, sy, ox, oy, dist = 0;
     p.addEventListener('pointerdown', e => {
@@ -448,7 +455,7 @@
   requestAnimationFrame(layoutWall);
 
   // ───────── reasons ─────────
-  const emo = ['💌','🌸','✨','🦋','🌙','🍓','🫶','🌹'];
+  const emo = ['💜','💖','💗','💘','💝','💕','💓','❤️'];
   C.reasons.forEach((r,i) => {
     const d = document.createElement('div');
     d.className = 'flip rv';
