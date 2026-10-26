@@ -46,12 +46,11 @@ window.ANNIVERSARY = {
 
   // Typed out like a letter, line by line.
   letter: [
-    "My dearest Adi,",
+    "My dearest Adithi,",
     "",
-    "A year ago you asked me \"are we dating?\", and I didn't know that one question would change my whole life.",
-    "Since then: prawns on my birthday, our first Holi, chai with my family, Go Bokke and hot wings, and more gate crashing than you ever asked for.",
-    "Thank you for every laugh, every adventure, and for putting up with me annoying you. I promise I'll never stop.",
-    "Here's to year one, and to every year after it.",
+    "A year ago I didn't know that one person could become my favourite part of every single day.",
+    "Thank you for every laugh, every late-night talk, every adventure and every quiet moment in between.",
+    "Here's to year one — and to every year after it.",
     "",
     "I love you. Always.",
     "— Vidur",
