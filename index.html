@@ -364,7 +364,7 @@
     row.querySelector('.ph').appendChild(p);
     row.querySelector('.date').textContent = m.date;
     row.querySelector('h3').textContent = m.title;
-    row.querySelector('p').textContent = m.text;
+    row.querySelector('p').textContent = m.text || '';
     tl.appendChild(row);
     tilt(p);
     p.style.cursor = 'zoom-in';
