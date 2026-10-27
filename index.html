@@ -24,14 +24,17 @@
   html{scroll-behavior:smooth;}
   body{
     font-family:'Raleway',sans-serif;color:var(--text);
-    background:
-      radial-gradient(circle at 15% 85%,rgba(255,105,180,0.18),transparent 45%),
-      radial-gradient(circle at 85% 15%,rgba(255,20,147,0.16),transparent 45%),
-      linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,#3d1a2d 100%) fixed;
+    background:var(--bg1);
     min-height:100vh;overflow-x:hidden;
   }
   body.locked{overflow:hidden;height:100vh;}
-  #sky{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  #sky{
+    position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;
+    background:
+      radial-gradient(circle at 15% 85%,rgba(255,105,180,0.18),transparent 45%),
+      radial-gradient(circle at 85% 15%,rgba(255,20,147,0.16),transparent 45%),
+      linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 50%,#3d1a2d 100%);
+  }
   main{position:relative;z-index:1;}
   section{padding:90px 20px;max-width:1100px;margin:0 auto;}
   h2.title{
@@ -97,7 +100,7 @@
   .hero .names{font-family:'Caveat',cursive;font-size:clamp(26px,6vw,40px);margin:12px 0 40px;color:var(--soft-pink);}
   .counter{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(560px,100%);}
   @media (max-width:380px){.counter{gap:6px}.counter span{letter-spacing:0;font-size:10px}}
-  .counter div{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:16px 6px;backdrop-filter:blur(12px);}
+  .counter div{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:16px 6px;}
   .counter b{display:block;font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,40px);}
   .counter span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
   .scroll-hint{margin-top:50px;font-size:13px;color:var(--muted);animation:bounce 2s infinite;}
@@ -144,10 +147,14 @@
   }
 
   /* ───────── 3D CAROUSEL ───────── */
-  .stage{height:460px;perspective:1100px;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:pan-y;cursor:grab;user-select:none;}
+  .stage{position:relative;height:460px;perspective:1100px;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:pan-y;cursor:grab;user-select:none;}
   .stage:active{cursor:grabbing;}
+  .stage::after{ /* soft glow the ring floats over (cheap stand-in for per-photo reflections) */
+    content:'';position:absolute;left:50%;bottom:40px;width:min(640px,90%);height:70px;transform:translateX(-50%);
+    background:radial-gradient(ellipse at center,rgba(255,105,180,.35),transparent 70%);pointer-events:none;
+  }
   .ring{position:relative;width:190px;height:240px;transform-style:preserve-3d;}
-  .ring .polaroid{position:absolute;inset:0;padding:8px 8px 36px;backface-visibility:hidden;-webkit-box-reflect:below 14px linear-gradient(transparent 60%,rgba(255,255,255,.18));}
+  .ring .polaroid{position:absolute;inset:0;padding:8px 8px 36px;backface-visibility:hidden;}
   .ring .polaroid::before{display:none;}
   .ring .polaroid .cap{font-size:18px;bottom:6px;}
   .ring .polaroid .stamp{font-size:10px;right:14px;bottom:42px;}
@@ -168,7 +175,7 @@
   .flip .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.34,1.4,.64,1);}
   .flip.on .in{transform:rotateY(180deg);}
   .flip .f,.flip .b{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1.5px solid var(--border);}
-  .flip .f{background:var(--card);backdrop-filter:blur(10px);font-size:40px;flex-direction:column;gap:6px;}
+  .flip .f{background:rgba(255,228,245,0.14);font-size:40px;flex-direction:column;gap:6px;}
   .flip .f small{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
   .flip .b{transform:rotateY(180deg);background:linear-gradient(135deg,#ff69b4,#c2185b);font-family:'Playfair Display',serif;font-style:italic;font-size:17px;line-height:1.5;}
 
@@ -204,7 +211,7 @@
   #lb button{position:absolute;background:rgba(255,255,255,.1);border:1.5px solid var(--border);color:#fff;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;}
   #lb .x{top:18px;right:18px;} #lb .p{left:14px;top:50%;transform:translateY(-50%);} #lb .n{right:14px;top:50%;transform:translateY(-50%);}
 
-  #music{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);backdrop-filter:blur(10px);color:#fff;font-size:20px;cursor:pointer;display:none;}
+  #music{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);color:#fff;font-size:20px;cursor:pointer;display:none;}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
@@ -308,7 +315,7 @@
     const el = new Image();
     el.alt = alt; el.loading = 'lazy'; el.decoding = 'async';
     el.onerror = () => { el.onerror = null; el.src = placeholder(file,i); };
-    el.src = 'photos/' + file;
+    el.src = 'photos/thumbs/' + file;
     return el;
   }
   function polaroid(file,cap,i,date){
@@ -414,12 +421,18 @@
     }
     dragging = false;
   });
-  (function spin(){
+  let ringVisible = false, spinning = false;
+  function spin(){
+    if (!ringVisible && !dragging){ spinning = false; return; }
     rot += vel;
     if (!dragging) vel += ((reduced?0:0.15) - vel) * 0.03; // ease back to idle spin
     ring.style.transform = `translateZ(-${radius}px) rotateY(${rot}deg)`;
     requestAnimationFrame(spin);
-  })();
+  }
+  new IntersectionObserver(([e]) => {
+    ringVisible = e.isIntersecting;
+    if (ringVisible && !spinning){ spinning = true; requestAnimationFrame(spin); }
+  }).observe(stage);
 
   // ───────── scrapbook wall (draggable polaroids) ─────────
   const wall = $('#wall');
@@ -537,12 +550,13 @@
   });
 
   // ───────── background sky: twinkling stars + drifting hearts ─────────
+  const DPR = Math.min(devicePixelRatio || 1, 1.5); // full retina canvases cost a lot on big screens
   const sky = $('#sky'), sx = sky.getContext('2d');
   let stars = [], floaters = [];
   function sizeSky(){
-    sky.width = innerWidth * devicePixelRatio; sky.height = innerHeight * devicePixelRatio;
-    sx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
-    stars = Array.from({length: Math.round(innerWidth*innerHeight/9000)}, () => ({x:rnd(0,innerWidth), y:rnd(0,innerHeight), r:rnd(.3,1.4), p:rnd(0,6.28), s:rnd(.01,.04)}));
+    sky.width = innerWidth * DPR; sky.height = innerHeight * DPR;
+    sx.setTransform(DPR,0,0,DPR,0,0);
+    stars = Array.from({length: Math.min(200, Math.round(innerWidth*innerHeight/9000))}, () => ({x:rnd(0,innerWidth), y:rnd(0,innerHeight), r:rnd(.3,1.4), p:rnd(0,6.28), s:rnd(.01,.04)}));
   }
   sizeSky(); addEventListener('resize', sizeSky);
   function drawHeart(ctx,x,y,s){
@@ -575,7 +589,7 @@
   // ───────── fx canvas: fireworks, heart bursts, heart rain, cursor sparkles ─────────
   const fx = $('#fx'), fc = fx.getContext('2d');
   let parts = [];
-  function sizeFx(){ fx.width = innerWidth*devicePixelRatio; fx.height = innerHeight*devicePixelRatio; fc.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0); }
+  function sizeFx(){ fx.width = innerWidth*DPR; fx.height = innerHeight*DPR; fc.setTransform(DPR,0,0,DPR,0,0); }
   sizeFx(); addEventListener('resize', sizeFx);
 
   function heartBurst(x,y,count){
@@ -612,18 +626,24 @@
       if (Math.random() < .5) parts.push({x:e.clientX,y:e.clientY,vx:rnd(-.6,.6),vy:rnd(-.2,.8),g:.03,life:1,d:.03,s:rnd(1.5,3),h:rnd(300,350)});
     });
   }
+  let fxDirty = false;
   (function drawFx(){
+    requestAnimationFrame(drawFx);
+    if (!parts.length){ if (fxDirty){ fc.clearRect(0,0,innerWidth,innerHeight); fxDirty = false; } return; }
+    fxDirty = true;
     fc.clearRect(0,0,innerWidth,innerHeight);
     for (const p of parts){
       p.vy += p.g; p.vx *= .985; p.x += p.vx; p.y += p.vy; p.life -= p.d;
       fc.globalAlpha = Math.max(0,p.life);
       fc.fillStyle = `hsl(${p.h},90%,70%)`;
       if (p.heart) drawHeart(fc, p.x, p.y, p.s);
-      else { fc.shadowBlur = 10; fc.shadowColor = fc.fillStyle; fc.beginPath(); fc.arc(p.x,p.y,p.s,0,6.28); fc.fill(); fc.shadowBlur = 0; }
+      else { // soft glow + bright core
+        fc.globalAlpha *= .3; fc.beginPath(); fc.arc(p.x,p.y,p.s*2.6,0,6.28); fc.fill();
+        fc.globalAlpha = Math.max(0,p.life); fc.beginPath(); fc.arc(p.x,p.y,p.s,0,6.28); fc.fill();
+      }
     }
     fc.globalAlpha = 1;
     parts = parts.filter(p => p.life > 0 && p.y < innerHeight + 50);
-    requestAnimationFrame(drawFx);
   })();
 })();
 </script>
