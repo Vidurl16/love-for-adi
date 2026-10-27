@@ -8,3 +8,6 @@
 
 Tip: phone photos are huge. Keep each under ~500 KB (about 1600px wide) so the page loads fast.
 Any photo that's missing shows a pink placeholder, so the page never looks broken.
+
+Each photo also needs a small copy (640px wide) with the same name in `thumbs/`.
+The page shows those everywhere except the full-screen viewer, which keeps desktop smooth.
