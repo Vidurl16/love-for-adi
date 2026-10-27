@@ -56,6 +56,7 @@ window.ANNIVERSARY = {
     "— Vidur",
   ],
 
-  // Optional: put an .mp3 in ./photos/ and set its filename, e.g. "our-song.mp3"
-  song: "",
+  // Background music: paste a YouTube / YouTube Music playlist link (Public or Unlisted).
+  // e.g. "https://music.youtube.com/playlist?list=PL...". Leave empty for no music.
+  playlist: "",
 };
