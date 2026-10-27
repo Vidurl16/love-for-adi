@@ -34,14 +34,14 @@ window.ANNIVERSARY = {
 
   // Flip cards — tap to reveal.
   reasons: [
-    "You asked \"are we dating?\" first, and I'll never let you forget it",
-    "Your love for prawns (almost as much as me)",
-    "You put up with me annoying you every single day",
-    "Smatchies",
-    "You're my beautiful Adi bear",
-    "You came to meet my family (and had the chai first)",
-    "You'll scream \"Go Bokke\" with me, hot wings in hand",
-    "Every first with you, from Holi to Kendra, and every one still to come",
+    "You have a heart of gold. You're the salt of the earth, the kind of person who comes along once in a lifetime, and somehow you're mine.",
+    "You always put everyone before yourself. You're one of the kindest, most selfless souls to ever exist, and the world is softer just because you're in it.",
+    "You make me feel completely at ease, and you've shown me what true love really feels like.",
+    "Every moment with you feels like an adventure. You're my partner in crime on our never-ending quest for the most fun.",
+    "Your beauty is unmatched. One smile, one look when your eyes lock with mine, and I'm lost. You are truly mesmerising.",
+    "When you hold me, all my stress and worries melt away. In your arms, I'm home.",
+    "You always know how to make me laugh. Being goofy together and making each other giggle is one of my favourite things in the world.",
+    "The chemistry between us. Every hug, every kiss, every laugh, just being next to you, makes me feel whole.",
   ],
 
   // Typed out like a letter, line by line.
