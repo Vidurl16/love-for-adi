@@ -95,7 +95,8 @@
   }
   @keyframes shine{to{background-position:300% 0}}
   .hero .names{font-family:'Caveat',cursive;font-size:clamp(26px,6vw,40px);margin:12px 0 40px;color:var(--soft-pink);}
-  .counter{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:min(560px,100%);}
+  .counter{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(560px,100%);}
+  @media (max-width:380px){.counter{gap:6px}.counter span{letter-spacing:0;font-size:10px}}
   .counter div{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:16px 6px;backdrop-filter:blur(12px);}
   .counter b{display:block;font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,40px);}
   .counter span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
@@ -161,14 +162,15 @@
   @media (max-width:700px){.wall{height:560px}.wall .polaroid{width:130px;padding:8px 8px 34px}.wall .polaroid .cap{font-size:17px;bottom:6px}.wall .polaroid .stamp{font-size:10px;right:14px;bottom:40px}}
 
   /* ───────── REASONS ───────── */
-  .reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px;}
-  .flip{perspective:900px;height:170px;cursor:pointer;}
+  .reasons{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
+  .flip{perspective:900px;height:250px;cursor:pointer;}
+  @media (max-width:560px){.flip{height:200px}}
   .flip .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.34,1.4,.64,1);}
   .flip.on .in{transform:rotateY(180deg);}
   .flip .f,.flip .b{position:absolute;inset:0;border-radius:22px;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;border:1.5px solid var(--border);}
   .flip .f{background:var(--card);backdrop-filter:blur(10px);font-size:40px;flex-direction:column;gap:6px;}
   .flip .f small{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
-  .flip .b{transform:rotateY(180deg);background:linear-gradient(135deg,#ff69b4,#c2185b);font-family:'Playfair Display',serif;font-style:italic;font-size:19px;line-height:1.4;}
+  .flip .b{transform:rotateY(180deg);background:linear-gradient(135deg,#ff69b4,#c2185b);font-family:'Playfair Display',serif;font-style:italic;font-size:17px;line-height:1.5;}
 
   /* ───────── LETTER ───────── */
   .paper{
