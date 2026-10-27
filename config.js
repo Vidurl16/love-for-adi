@@ -58,5 +58,5 @@ window.ANNIVERSARY = {
 
   // Background music: paste a YouTube / YouTube Music playlist link (Public or Unlisted).
   // e.g. "https://music.youtube.com/playlist?list=PL...". Leave empty for no music.
-  playlist: "",
+  playlist: "https://music.youtube.com/playlist?list=PLA5ql7PMA2qU",
 };
